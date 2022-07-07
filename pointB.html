@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+      <div class="header-wrapper">
+          <div class="header-logo"></div>
+      </div>
+    </div>
+
+
+    <div class="main">
+      <div class="login-form">
+        <label class="ef">
+          <div class="inputBox">
+            <input type="text" id="b-id" maxlength="4" placeholder="ID">
+          </div>
+          <div class="submitBtn">
+          <input class="submit-btn" type="submit" value="ログイン" onclick="checkID()">
+          </div>
+        </label>
+      </div>
+
+
+      <script>
+
+      function checkID(){
+        const idText = document.getElementById("b-id")
+        //const nameText = document.getElementById("b-name")
+        const inputId = idText.value
+        //const inputName = nameText.value
+
+        var res = confirm("あなたのIDは「 " + inputId + " 」で間違いないですか？");
+        if ( res == true ) {
+          login(inputId)
+        } else {
+          alert("IDを入力しなおしてください")
+          window.location.href = ""
+        }
+      }
+
+      async function login(inputId){
+
+        let url="https://script.google.com/macros/s/AKfycbzryEfbAddmBeexe2POWoMaZwz1h95p4qpljh1aL7TZCZ4H7Rvm/exec?"
+        //&変数名= でGASに渡したいものを付け足していく
+        url += "id=" + inputId + "&point=" + "B"
+        //console.log(url)
+
+        const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
+        const result = await response.json()//textで受け取りたい場合は、.text
+        console.log(result[result.length-1])
+
+        if(result[result.length-1].errorCode == '1'){
+          alert(result[result.length-1].error)
+        } else if(result[result.length-1].errorCode == '2'){
+          alert(result[result.length-1].error)
+        } else if(result[result.length-1].errorCode == '3'){
+          alert(result[result.length-1].error)
+          window.location.href = "" //スタンプ確認ページへ飛ぶ
+        }else {
+          alert("B：スタンプげと～\n" + result[result.length-1].time)
+          pageTrans(inputId, "B");
+        }
+
+        function pageTrans(inputId, point){
+          let url = "getPoint.html?"
+          url += "id=" + inputId + "&point=" + point
+          console.log(url)
+          window.location.href = url //スタンプ確認ページへ飛ぶ
+        }
+
+      }
+    </script>
+
+    </div>
+
+    <!--フッター-->
+    <div class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-logo"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

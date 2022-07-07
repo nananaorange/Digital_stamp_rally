@@ -1,0 +1,81 @@
+body {
+   margin: 0;
+   padding: 0;
+}
+
+.stampContents {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  min-width: 300px;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  margin: 0 auto;
+}
+
+.stampSheet {
+  background-color: pink;
+  margin: 2%;
+  height: 1400px;
+  border-radius: 20px;
+}
+
+.stampContents img {
+  position: relative;
+  width: 100%;
+  margin: 1%;
+  border-radius: 10px;
+}
+
+.message{
+  height: 300px;
+}
+
+.messageBox{
+  margin: 0 auto;
+  height: 220px;
+  max-width: 89%;
+  min-width: 300px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.messageBox div{
+  font-size: 34px;
+  padding: 18px 20px 0 20px;
+  text-align: center;
+}
+
+.messageArea{
+  padding-top: 30px;
+}
+
+.mypageTrans span{
+  border-bottom: solid 1px darkblue;
+}
+
+.mypageTrans button{
+  margin: 10px 0 10px;
+  width: 60vw;
+  height: 120px;
+  padding: 0 5px;
+  border: none;
+  font-size: 34px;
+}
+
+.mypageTrans{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.trans-btn{
+  opacity: 0.7;
+  background-color: white;
+  color: #222222;
+  border-radius: 40px;
+}
+
+.trans-btn:active{
+  transition: 0.3s;
+  opacity: 1;
+}

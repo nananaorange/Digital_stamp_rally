@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+      <div class="header-wrapper">
+          <div class="header-logo"></div>
+      </div>
+    </div>
+
+
+    <div class="main">
+
+      <div class="stampSheet">
+
+        <div class="stampContents">
+          <img id="imageA" src="image/image0.jpg" onclick="pageTrans('A')">
+          <img id="imageB" src="image/image0.jpg" onclick="pageTrans('B')">
+          <img id="imageC" src="image/image0.jpg" onclick="pageTrans('C')">
+          <img id="imageD" src="image/image0.jpg" onclick="pageTrans('D')">
+        </div>
+        <div class="messageArea">
+          <div class="messageBox">
+            <div>こんにちは、 <span id="userID"></span> さん！</div>
+            <div><span id="message"></span></div>
+            <div><span id="lottery"></span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+        // img要素を取得する
+        let imgA = document.getElementById("imageA");
+        let imgB = document.getElementById("imageB");
+        let imgC = document.getElementById("imageC");
+        let imgD = document.getElementById("imageD");
+
+
+        window.onload = function() {
+            // URLを取得 URLの中身分解
+            const url = new URL(window.location.href)
+            const id = url.searchParams.get("id")
+
+            // IDがuserIDのところにidを代入
+            document.getElementById("userID").innerText = id
+
+            stampCheck(id)
+
+        }
+
+        async function stampCheck(inputId){
+
+          let url="https://script.google.com/macros/s/AKfycbyuhNzJrUUy_tdlP_fFDddOW5QkQiQCI-RboYsUyRClzOMvz7uGqlwigqchPoMSEy-9/exec?"//スタンプが何個か確認するためのGAS
+          url += "id=" + inputId
+
+          const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
+          const result = await response.json()//textで受け取りたい場合は、.text
+          console.log(result[result.length-1])
+
+          const message = result[result.length-1].message
+          if(result[result.length-1].lottery == true) var lottery = "抽選ができます"
+          else if(result[result.length-1].lottery == false) var lottery = "抽選済みです"
+          else var lottery = "４つスタンプを集めてください！"
+          document.getElementById("message").innerText = message
+          document.getElementById("lottery").innerText = lottery
+
+
+
+          const stampA = result[result.length-1].stampA
+          const stampB = result[result.length-1].stampB
+          const stampC = result[result.length-1].stampC
+          const stampD = result[result.length-1].stampD
+
+          if(stampA == true) imgA.src = "image/image1.jpg"
+          if(stampB == true) imgB.src = "image/image2.jpg"
+          if(stampC == true) imgC.src = "image/image3.jpg"
+          if(stampD == true) imgD.src = "image/image4.jpg"
+
+
+        }
+
+        function pageTrans(point){
+          const url = new URL(window.location.href)
+          const id = url.searchParams.get("id")
+
+          let pageTransUrl = "../getPoint.html?"
+          pageTransUrl += "id=" + id + "&point=" + point
+          window.location.href = pageTransUrl //スタンプ確認ページへ飛ぶ
+        }
+
+    </script>
+
+    <!--フッター-->
+    <div class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-logo"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style1.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+      <div class="header-wrapper">
+          <div class="header-logo"></div>
+      </div>
+    </div>
+
+
+    <div class="main">
+
+      <div class="stampSheet">
+
+        <div class="stampContents">
+          <img id="image" src="mypage/image/image0.jpg">
+        </div>
+        <div class="messageArea">
+          <div class="messageBox">
+            <div><span id="museum"></span></div>
+            <div><span id="time"></span></div>
+            <div><spam id="getStamp"></span></div>
+          </div>
+        </div>
+
+        <div class="mypageTrans">
+          <button class="trans-btn" type="button" onclick="mypageTrans()"> <span>今まで集めたスタンプを<br>確認する</span> </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+        // img要素を取得する
+        let img = document.getElementById("image");
+
+        window.onload = function() {
+            // URLを取得 URLの中身分解
+            const url = new URL(window.location.href)
+            const id = url.searchParams.get("id")
+            const point = url.searchParams.get("point")
+
+            console.log(id + "\n" + point);
+
+            stampCheck(id, point)
+
+        }
+
+        async function stampCheck(inputId, point){
+
+          let url="https://script.google.com/macros/s/AKfycbz_aCaQWFtCq21MN1tJ0zH9fkag2_UiE8FppOknh9LhvV1WBlyiQKbrbjJ-FQNiJRcT/exec?"//スタンプが何個か確認するためのGAS
+          url += "id=" + inputId + "&point=" + point
+
+          const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
+          const result = await response.json()//textで受け取りたい場合は、.text
+          console.log(result[result.length-1])
+          //const message = result[result.length-1].message
+          //IDがmessageのところにmessageを代入
+          //document.getElementById("message").innerText = message
+          time = result[result.length-1].time
+          document.getElementById("time").innerText = time
+          stamp = result[result.length-1].stamp
+
+          let stampA = false
+          let stampB = false
+          let stampC = false
+          let stampD = false
+
+          if(point == "A") stampA = true
+          if(point == "B") stampB = true
+          if(point == "C") stampC = true
+          if(point == "D") stampD = true
+
+          if(stampA == true){
+            var museum = "日中線ミュージアム"
+            if(stamp == true) img.src = "mypage/image/image1.jpg"}
+          else if(stampB == true){
+            var museum = "衣料品ミュージアム"
+            if(stamp == true) img.src = "mypage/image/image2.jpg"}
+          else if(stampC == true){
+            var museum = "ブックミュージアム"
+            if(stamp == true) img.src = "mypage/image/image3.jpg"}
+          if(stampD == true){
+            var museum = "ミュージックミュージアム"
+            if(stamp == true) img.src = "mypage/image/image4.jpg"}
+
+          if(stamp == true)document.getElementById("getStamp").innerText = "☆スタンプゲット☆"
+
+          document.getElementById("museum").innerText = museum
+
+        }
+
+        function mypageTrans(){
+          const url = new URL(window.location.href)
+          const id = url.searchParams.get("id")
+
+          let mypageUrl = "mypage/mypage.html?"
+          mypageUrl += "id=" + id
+          window.location.href = mypageUrl //スタンプ確認ページへ飛ぶ
+        }
+    </script>
+
+    <!--フッター-->
+    <div class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-logo"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

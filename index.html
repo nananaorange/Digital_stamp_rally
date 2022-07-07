@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+      <div class="header-wrapper">
+          <div class="header-logo"></div>
+      </div>
+    </div>
+
+
+    <div class="main">
+
+      <a href="login.html">ログイン</a>
+      <a href="signUp.html">登録</a>
+
+
+              <!--ログイン-->
+        <script>
+
+          window.onload = function(){
+            PassWord = prompt("数字4桁を入力して下さい", "");
+            var Ans = [7628];
+            var key=0;
+
+            for ( i=0; i<Ans.length; i++){
+              if (PassWord == Ans[i]){ key=1 }
+            }
+
+            if (key == 1) {
+            return ture;
+
+            } else if (key != 1 && PassWord != null) {
+              alert("パスワードが違います");
+              location.href = "hoge.html";
+            } else {
+              alert("ウィンドウを閉じます");
+              open('about:blank', '_self').close();
+            }
+          }
+        </script>
+    </div>
+
+    <!--フッター-->
+    <div class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-logo"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
