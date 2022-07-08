@@ -62,7 +62,7 @@
           alert(result[result.length-1].error)
         } else if(result[result.length-1].errorCode == '3'){
           alert(result[result.length-1].error)
-          window.location.href = "" //スタンプ確認ページへ飛ぶ
+          pageTrans(inputId, "D"); //スタンプ確認ページへ飛ぶ
         }else {
           alert("D：スタンプげと～\n" + result[result.length-1].time)
           pageTrans(inputId, "D");
