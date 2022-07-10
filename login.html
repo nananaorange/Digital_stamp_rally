@@ -61,14 +61,14 @@
                   } else if(result[result.length-1].errorCode == '2'){
                     alert(result[result.length-1].error)
                   } else {
-                    alert("ようこそ")
+                    //alert("ようこそ")
                     pageTrans(inputId);
                   }
 
                   function pageTrans(inputId){
                     let url = "mypage/mypage.html?"
                     url += "id=" + inputId
-                    console.log(url)
+                    //console.log(url)
                     window.location.href = url //スタンプ確認ページへ飛ぶ
                   }
 

@@ -54,7 +54,7 @@
 
         const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
         const result = await response.json()//textで受け取りたい場合は、.text
-        console.log(result[result.length-1])
+        //console.log(result[result.length-1])
 
         if(result[result.length-1].errorCode == '1'){
           alert(result[result.length-1].error)
@@ -64,14 +64,14 @@
           alert(result[result.length-1].error)
           pageTrans(inputId, "B"); //スタンプ確認ページへ飛ぶ
         }else {
-          alert("B：スタンプげと～\n" + result[result.length-1].time)
+          //alert("B：スタンプげと～\n" + result[result.length-1].time)
           pageTrans(inputId, "B");
         }
 
         function pageTrans(inputId, point){
           let url = "getPoint.html?"
           url += "id=" + inputId + "&point=" + point
-          console.log(url)
+          //console.log(url)
           window.location.href = url //スタンプ確認ページへ飛ぶ
         }
 

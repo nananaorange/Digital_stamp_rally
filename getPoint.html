@@ -48,7 +48,7 @@
             const id = url.searchParams.get("id")
             const point = url.searchParams.get("point")
 
-            console.log(id + "\n" + point);
+            //console.log(id + "\n" + point);
 
             stampCheck(id, point)
 
@@ -61,7 +61,7 @@
 
           const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
           const result = await response.json()//textで受け取りたい場合は、.text
-          console.log(result[result.length-1])
+          //console.log(result[result.length-1])
           //const message = result[result.length-1].message
           //IDがmessageのところにmessageを代入
           //document.getElementById("message").innerText = message

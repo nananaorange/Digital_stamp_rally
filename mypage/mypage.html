@@ -64,11 +64,10 @@
 
           const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
           const result = await response.json()//textで受け取りたい場合は、.text
-          console.log(result[result.length-1])
+          //console.log(result[result.length-1])
 
           const message = result[result.length-1].message
           if(result[result.length-1].lottery == true) var lottery = "抽選ができます"
-          else if(result[result.length-1].lottery == false) var lottery = "抽選済みです"
           else var lottery = "４つスタンプを集めてください！"
           document.getElementById("message").innerText = message
           document.getElementById("lottery").innerText = lottery
