@@ -16,16 +16,18 @@
 
 
     <div class="main">
+      <div class="museum-title">日中線＆鉄道ミュージアム</div>
       <div class="login-form">
         <label class="ef">
           <div class="inputBox">
             <input type="text" id="b-id" maxlength="4" placeholder="ID" oninput="value = value.replace(/[０-９]/g,s => String.fromCharCode(s.charCodeAt(0) - 65248)).replace(/\D/g,'');">
           </div>
           <div class="submitBtn">
-            <input class="submit-btn" type="submit" value="ログイン" onclick="checkID()">
+            <input class="submit-btn" type="submit" value="スタンプをもらう" onclick="checkID()">
           </div>
         </label>
       </div>
+      <div class="option">＜なんども「IDは間違えています」と出てしまう方＞<br>お手数ですが、再度受付にて新しいIDを貰ってください</div>
 
 
       <script>
