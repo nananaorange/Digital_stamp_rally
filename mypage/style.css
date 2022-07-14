@@ -49,3 +49,10 @@ body {
 .messageArea{
   padding-top: 30px;
 }
+
+.note {
+    font-size: 3vw;
+    text-align: center;
+    padding-top: 3vh;
+    color: gray;
+}
