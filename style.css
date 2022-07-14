@@ -57,5 +57,13 @@
 .option {
   font-size: 3.6vw;
   text-align: center;
-  padding-top: 18vh;
+  padding-top: 3vh;
+  color: gray;
+}
+
+.note {
+    font-size: 3.6vw;
+    text-align: center;
+    padding-top: 20vh;
+    color: gray;
 }
