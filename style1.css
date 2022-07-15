@@ -14,7 +14,7 @@ body {
 }
 
 .stampSheet {
-  background-color: pink;
+  background-color: #D9B1A3;
   margin: 2%;
   height: 1400px;
   border-radius: 20px;
@@ -36,7 +36,7 @@ body {
   height: 220px;
   max-width: 89%;
   min-width: 300px;
-  background-color: white;
+  background-color: #fbf6f4;
   border-radius: 10px;
 }
 
