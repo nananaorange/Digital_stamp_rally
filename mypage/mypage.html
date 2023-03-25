@@ -20,7 +20,7 @@
       <div class="stampSheet">
 
         <div class="stampContents">
-          <img id="imageA" src="image/image0.jpg" onclick="pageTrans('A')">
+          <img id="imageA" src="image/image0.jpg" onclick="pageTrans('A')"> //image0.jpgは白い画像、ページ遷移のとき'A'を渡す->これでpageAに飛ぶ
           <img id="imageB" src="image/image0.jpg" onclick="pageTrans('B')">
           <img id="imageC" src="image/image0.jpg" onclick="pageTrans('C')">
           <img id="imageD" src="image/image0.jpg" onclick="pageTrans('D')">
@@ -61,7 +61,7 @@
 
         async function stampCheck(inputId){
 
-          let url="https://script.google.com/macros/s/AKfycbyuhNzJrUUy_tdlP_fFDddOW5QkQiQCI-RboYsUyRClzOMvz7uGqlwigqchPoMSEy-9/exec?"//スタンプが何個か確認するためのGAS
+          let url="https://script.google.com/macros/s/-------/exec?"//GASのstamp check。----にはデプロイID。
           url += "id=" + inputId
 
           const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
@@ -81,7 +81,7 @@
           const stampC = result[result.length-1].stampC
           const stampD = result[result.length-1].stampD
 
-          if(stampA == true) imgA.src = "image/a-min.png"
+          if(stampA == true) imgA.src = "image/a-min.png" //a-min.pngからd-min.pngは動かないスタンプ画像
           if(stampB == true) imgB.src = "image/b-min.png"
           if(stampC == true) imgC.src = "image/c-min.png"
           if(stampD == true) imgD.src = "image/d-min.png"
