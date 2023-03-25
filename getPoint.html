@@ -59,7 +59,7 @@
 
         async function stampCheck(inputId, point){
 
-          let url="https://script.google.com/macros/s/AKfycbz_aCaQWFtCq21MN1tJ0zH9fkag2_UiE8FppOknh9LhvV1WBlyiQKbrbjJ-FQNiJRcT/exec?"//スタンプが何個か確認するためのGAS
+          let url="https://script.google.com/macros/s/------------/exec?"   //GASのstamp get。--------にはデプロイID
           url += "id=" + inputId + "&point=" + point
 
           const response = await fetch(url,{headers: { 'Content-Type': 'text/plain'}})
